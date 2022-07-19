@@ -77,13 +77,13 @@ def saveScoreAndFeatureMap(datasetTypes, modelTypes, Folds, models, DBPath):
             model1ImgType = os.listdir(bestModel1Path)[0]
             bestModel1Path += '\\' + model1ImgType
             bestModel1Name = os.listdir(bestModel1Path)[0]
-            model1TrainDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\reTrain\\' + model1ImgType
+            model1TrainDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\train\\' + model1ImgType
 
             bestModel2Path = './' + datasetType + '\\bestModel' + '\\' + model2Type + '\\' + Fold
             model2ImgType = os.listdir(bestModel2Path)[0]
             bestModel2Path += '\\' + model2ImgType
             bestModel2Name = os.listdir(bestModel2Path)[0]
-            model2TrainDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\reTrain\\' + model2ImgType
+            model2TrainDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\train\\' + model2ImgType
 
             trans = transforms.Compose([transforms.Resize((224, 224)), transforms.ToTensor()])
             model1Trainset = CustomDataset.CustomDataset(root_dir=model1TrainDBPath,
@@ -198,7 +198,7 @@ def saveScoreAndFeatureMap(datasetTypes, modelTypes, Folds, models, DBPath):
                     gradient2.clear()
                     gradient_att.clear()
 
-                    totalDataSavePath = DBPath + '\\' + datasetType + '\\' + Fold + '\\reTrain\\' + 'SCENetTrainData\\' \
+                    totalDataSavePath = DBPath + '\\' + datasetType + '\\' + Fold + '\\train\\' + 'SCENetTrainData\\' \
                                         + probRealLabel1
                     if not os.path.isdir(totalDataSavePath):
                         os.makedirs(totalDataSavePath)

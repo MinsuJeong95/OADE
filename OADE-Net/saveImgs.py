@@ -18,9 +18,12 @@ def positiveSaveClassUp(camiter, device):
     camImgs.append(camData['image'].to(device))
     camNames.append(camData['filename'][0])
     camName = camNames[0].split('\\')
-    path = str(camName[0]) + '\\' + str(camName[1]) + '\\' + str(camName[2]) + '\\' + str(
-        camName[3]) + '\\' + \
-           str(camName[4]) + '\\' + str(camName[5]) + '\\' + str(camName[6]) + '\\' + str(camName[7])
+    path = ""
+    for i in range(len(camName)-2):
+        # path = str(camName[0]) + '\\' + str(camName[1]) + '\\' + str(camName[2]) + '\\' + str(
+        #     camName[3]) + '\\' + \
+        #        str(camName[4]) + '\\' + str(camName[5]) + '\\' + str(camName[6]) + '\\' + str(camName[7])
+        path = path + str(camName[i]) + '\\'
     camList = os.listdir(path)
 
     for camI in range(len(camList) - 1):
@@ -64,14 +67,16 @@ def positiveSave(imgType, DBPath):
     probImgs = []
     probNames = []
     probImgs, probNames, probName = positiveSaveClassUp(probiter, device)
+    probNameLen = len(probName)
 
     galName = 0
     galImgs = []
     galNames = []
     galImgs, galNames, galName = positiveSaveClassUp(galiter, device)
+    galNameLen = len(galName)
 
     while True:
-        if int(probName[7]) == int(galName[7]):
+        if int(probName[probNameLen-2]) == int(galName[galNameLen-2]):
             for prob_i in range(len(probImgs)):
                 for gal_i in range(len(galImgs)):
                     if probNames[prob_i] == galNames[gal_i]:
@@ -80,26 +85,30 @@ def positiveSave(imgType, DBPath):
                     # imgPre.viewTensorImg(inputImgs)
                     imgCnt = imgCnt + 1
                     probRealName = probNames[prob_i].split('\\')
-                    probSaveName = probRealName[6] + '_' + probRealName[7] + '_' + probRealName[8].split('.')[0]
+                    probSaveName = probRealName[probNameLen-3] + '_' + probRealName[probNameLen-2] + '_' + probRealName[probNameLen-1].split('.')[0]
                     galRealName = galNames[gal_i].split('\\')
-                    galSaveName = galRealName[6] + '_' + galRealName[7] + '_' + galRealName[8].split('.')[0]
+                    galSaveName = galRealName[galNameLen-3] + '_' + galRealName[galNameLen-2] + '_' + galRealName[galNameLen-1].split('.')[0]
                     imgPre.saveImg(inputImgs, saveDBPath, probSaveName, galSaveName, 1, imgCnt)
 
             probImgs = []
             probNames = []
             probImgs, probNames, probName = positiveSaveClassUp(probiter, device)
+            if probName != -1:
+                probNameLen = len(probName)
 
             galImgs = []
             galNames = []
             galImgs, galNames, galName = positiveSaveClassUp(galiter, device)
+            if galName != -1:
+                galNameLen = len(galName)
 
-        elif int(probName[7]) < int(galName[7]):
+        elif int(probName[probNameLen-2]) < int(galName[galNameLen-2]):
             probImgs = []
             probNames = []
             probImgs, probNames, probName = positiveSaveClassUp(probiter, device)
 
 
-        elif int(probName[7]) > int(galName[7]):
+        elif int(probName[probNameLen-2]) > int(galName[galNameLen-2]):
             galImgs = []
             galNames = []
             galImgs, galNames, galName = positiveSaveClassUp(galiter, device)
@@ -149,8 +158,10 @@ def negativeSave(imgType, DBPath):
 
         probImgs = probData['image'].to(device)
         probName = probData['filename'][0].split('\\')
-        probRealName = probName[7]
-        probSaveName = probName[6] + '_' + probName[7] + '_' + probName[8].split('.')[0]
+        probNameLen = len(probName)
+
+        probRealName = probName[probNameLen-2]
+        probSaveName = probName[probNameLen-3] + '_' + probName[probNameLen-2] + '_' + probName[probNameLen-1].split('.')[0]
 
         try:
             galData = galiter.next()
@@ -160,8 +171,10 @@ def negativeSave(imgType, DBPath):
 
         galImgs = galData['image'].to(device)
         galName = galData['filename'][0].split('\\')
-        galRealName = galName[7]
-        galSaveName = galName[6] + '_' + galName[7] + '_' + galName[8].split('.')[0]
+        galNameLen = len(galName)
+
+        galRealName = galName[galNameLen-2]
+        galSaveName = galName[galNameLen-3] + '_' + galName[galNameLen-2] + '_' + galName[galNameLen-1].split('.')[0]
 
         if galRealName == probRealName:
             continue

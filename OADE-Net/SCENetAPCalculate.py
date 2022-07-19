@@ -68,8 +68,6 @@ def apCalculate(datasetType, modelType, Fold):
                 print('Error')
 
             allReIdValues = []
-            # f = open(uncorrectedPath + "/uncorrected_" + pickleFilePath[0].split('.')[0] + '_' + str(key) + ".txt",
-            #          'w')
 
             threshold = 0.5
 
@@ -161,7 +159,8 @@ def apCalculate(datasetType, modelType, Fold):
 
             plt.close()
 
-        f = open(folderPath + "/mAP_" + pickleFilePath.split('.')[0] + '_' + ".txt", 'w')
+        f = open(folderPath + "/mAP" + ".txt", 'w')
+        f.write(pickleFilePath.split('.')[0] + '\n')
         mAP = mAP / len(ReIDdict)
         f.write('mAP : ' + str(mAP) + '\n')
         f.close()

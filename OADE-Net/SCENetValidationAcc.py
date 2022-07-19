@@ -54,7 +54,7 @@ def accCalculate(datasetType, modelType, Fold) :
         except OSError:
             print('Error')
 
-        f = open(folderPath+"/uncorrected_" + pickleFilePath[fileCnt].split('.')[0] + ".txt", 'w')
+        f = open(folderPath+"/uncorrected" + ".txt", 'w')
 
         for t, threshold in enumerate(thresholding):
             TP = 0

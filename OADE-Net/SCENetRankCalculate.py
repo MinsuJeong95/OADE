@@ -77,8 +77,7 @@ def rankClaculate(datasetType, modelType, Fold):
         plt.xticks(range(1,rankWide+1))
         plt.title('RankScore_' + foldType + '_' + modelType)
         plt.legend(loc='lower right')
-        plt.savefig(folderPath + '/RankScore_' + datasetType + '_' + foldType + '_' +
-                    modelType + '.png')
+        plt.savefig(folderPath + '/RankScore' + '.png')
 
         plt.close()
         f.close()

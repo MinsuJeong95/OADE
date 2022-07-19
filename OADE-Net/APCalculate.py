@@ -162,7 +162,8 @@ def apCalculate(datasetType, modelType, Fold, imgType):
 
             plt.close()
 
-        f = open(folderPath + "/mAP_" + pickleFilePath.split('.')[0] + '_' + ".txt", 'w')
+        f = open(folderPath + "/mAP" + ".txt", 'w')
+        f.write(pickleFilePath.split('.')[0] + '\n')
         mAP = mAP / len(ReIDdict)
         f.write('mAP : ' + str(mAP) + '\n')
         f.close()
