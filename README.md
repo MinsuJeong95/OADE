@@ -9,7 +9,6 @@ https://drive.google.com/file/d/1DphKtdPyLQwLrDoEezZE0qNNRqq0QAga/view?usp=shari
 Download thermal database
 
 https://drive.google.com/file/d/1zw0UYnOoOENM7jIkqeoMSPqsFK5R1mQH/view?usp=sharing
-
 (DBPerson-Recog-DB1_thermal [1], SYSU-MM01_thermal [2])
 
 -----------------------------------------------------------------------------------------------------------------------------
