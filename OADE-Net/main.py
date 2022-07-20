@@ -56,7 +56,7 @@ def main():
                     valDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\validation\\allcam'
                     testDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\test\\allcam'
 
-                    Training.training(datasetType, modelType, Fold, imgType, models[model_i], trainDBPath, numEpoch=3, startEpoch=0, lr=1e-3, wd=1e-4)
+                    Training.training(datasetType, modelType, Fold, imgType, models[model_i], trainDBPath, numEpoch=10, startEpoch=0, lr=1e-3, wd=1e-4)
                     Validation.validation(datasetType, modelType, Fold, imgType, models[model_i], valDBPath, geometric=geometricCentor)
                     validationAcc.accCalculate(datasetType, modelType, Fold, imgType)
                     Test.test(datasetType, modelType, Fold, imgType, models[model_i], testDBPath)
@@ -82,7 +82,7 @@ def main():
             valDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\validation\\' + 'allcam'
             testDBPath = DBPath + '\\' + datasetType + '\\' + Fold + '\\test\\' + 'allcam'
 
-            SCENetTraining.training(datasetType, Fold, modelType, sceNet, trainDBPath, numEpoch=3, startEpoch=0, lr=1e-5, wd=1e-4)
+            SCENetTraining.training(datasetType, Fold, modelType, sceNet, trainDBPath, numEpoch=10, startEpoch=0, lr=1e-5, wd=1e-4)
             SCENetValidation.validation(datasetType, Fold, modelTypes, modelType, models, sceNet, valDBPath, geometricCentor)
             SCENetValidationAcc.accCalculate(datasetType, modelType, Fold)
             SCENetTest.test(datasetType, Fold, modelTypes, modelType, models, sceNet, testDBPath, geometricCentor)
