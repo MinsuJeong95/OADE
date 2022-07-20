@@ -2,7 +2,7 @@
 -----------------------------------------------------------------------------------------------------------------------------
 Original and attention-guided DenseNet-based ensemble network for person re-identification using infrared light images system. Any works that uses the provided pretrained network must acknowledge the authors by including the following reference.
 
-    Min Su Jeong, Seong In Jeong, Seon Jong Kang, Kyung Bong Ryu, and Kang Ryoung Park, “OADE-Net: Original and Attention-guided DenseNet-based Ensemble Network for Person Re-identification Using Infrared Light Images,” Computers and Electronics in Agriculture, In submission 
+    Min Su Jeong, Seong In Jeong, Seon Jong Kang, Kyung Bong Ryu, and Kang Ryoung Park, “OADE-Net: Original and Attention-guided DenseNet-based Ensemble Network for Person Re-identification Using Infrared Light Images,” Mathematics, In submission 
     
 <br>
 
