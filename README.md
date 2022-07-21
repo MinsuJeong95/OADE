@@ -14,7 +14,7 @@ https://drive.google.com/file/d/1DphKtdPyLQwLrDoEezZE0qNNRqq0QAga/view?usp=shari
 
 Download thermal database
 
-https://drive.google.com/file/d/10MJzqMvX-TTfDW6ZfQ1uVtLT47Xb6TiL/view?usp=sharing (DBPerson-Recog-DB1_thermal [1])
+https://drive.google.com/file/d/1ugIeeHM0OTWhgNeF4ftP4AKE7s7ltYww/view?usp=sharing (DBPerson-Recog-DB1_thermal [1])
 
 You can download SYSU-MM01 https://github.com/wuancong/SYSU-MM01 [2]
 
